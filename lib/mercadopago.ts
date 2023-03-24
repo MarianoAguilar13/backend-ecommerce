@@ -45,7 +45,7 @@ export async function createAndReturnPreference(
       metadata: { userId },
       external_reference: order.id,
       notification_url:
-        "https://preference-mercadopago.vercel.app/api/webhooks/mercadopago",
+        "https://backend-ecommerce-virid.vercel.app/api/ipn/mercadopago",
     });
 
     return preference;
