@@ -5,6 +5,7 @@ import { getProductById } from "controllers/product";
 import { createAndReturnOrder } from "controllers/order";
 import { createAndReturnPreference } from "lib/mercadopago";
 import * as yup from "yup";
+import corsMiddleware from "../mddleware-cors";
 
 //la data opcional del product la envio por el body
 /*
@@ -67,4 +68,8 @@ const handler = methods({
   post: postHandler,
 });
 
-export default authMiddleware(handler);
+const corsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  return await corsMiddleware(req, res, authMiddleware(handler));
+};
+
+export default corsHandler;
