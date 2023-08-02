@@ -34,7 +34,7 @@ export async function actualizarDataOrder(id, data) {
 export async function verificarOrderStatus(order) {
   //el merchant order tiene toda la informacion de la orden creada
 
-  //  console.log("el orden status es: ", order.response.order_status);
+  //  console.log("el orden status es: ", order.order_status);
 
   /*
   if (order.response.order_status == "paid") {
