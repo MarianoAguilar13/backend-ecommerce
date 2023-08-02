@@ -1,0 +1,53 @@
+{
+  "name": "desafio-final",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mariano <mariano_aguilar_13@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next"
+  },
+  "ava": {
+    "nodeArguments": [
+      "--loader=@esbuild-kit/esm-loader",
+      "--experimental-specifier-resolution=node"
+    ],
+    "environmentVariables": {
+      "TESTING": "true",
+      "JWT_SECRET": "odfsmklmkldfasmkl"
+    },
+    "extensions": {
+      "ts": "module"
+    }
+  },
+  "dependencies": {
+    "@esbuild-kit/esm-loader": "^2.5.5",
+    "@sendgrid/mail": "^7.7.0",
+    "airtable": "^0.11.6",
+    "algoliasearch": "^4.15.0",
+    "ava": "^5.2.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "esbuild": "^0.17.12",
+    "esbuild-node-loader": "^0.8.0",
+    "firebase-admin": "^11.5.0",
+    "jsonwebtoken": "^9.0.0",
+    "mercadopago": "^1.5.15",
+    "micro": "^10.0.1",
+    "micro-method-router": "^0.1.0",
+    "next": "^13.1.6",
+    "nextjs-cors": "^2.1.2",
+    "parse-bearer-token": "^1.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "yup": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/node": "18.13.0",
+    "@types/react": "18.0.28",
+    "typescript": "4.9.5"
+  }
+}
