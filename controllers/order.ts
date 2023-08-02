@@ -47,7 +47,6 @@ export async function verificarOrderStatus(order) {
   }
 }
   */
-  console.log("cambio saaaaaaaaaaaaaaa");
 
   if (order.order_status === "paid") {
     console.log("se realizo el pago");
