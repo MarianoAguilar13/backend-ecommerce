@@ -39,7 +39,7 @@ export async function createAndReturnPreference(
       ],
       //la url donde va a volver el usuario
       back_urls: {
-        success: "",
+        success: "http://localhost:3000/",
         pending: "",
       },
       metadata: { userId },
