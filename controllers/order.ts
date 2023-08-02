@@ -34,10 +34,22 @@ export async function actualizarDataOrder(id, data) {
 export async function verificarOrderStatus(order) {
   //el merchant order tiene toda la informacion de la orden creada
 
-  console.log("el orden status es: ", order.response.order_status);
+  //  console.log("el orden status es: ", order.response.order_status);
 
+  /*
   if (order.response.order_status == "paid") {
     const orderId = order.response.external_reference;
+    const myOrder = new Order(orderId);
+    await myOrder.pull();
+    myOrder.data.status = "closed";
+    await myOrder.push();
+    //enviar el email que el pago fue realizado
+  }
+}
+  */
+
+  if (order.order_status == "paid") {
+    const orderId = order.external_reference;
     const myOrder = new Order(orderId);
     await myOrder.pull();
     myOrder.data.status = "closed";
