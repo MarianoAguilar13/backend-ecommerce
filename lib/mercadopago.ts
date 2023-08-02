@@ -46,6 +46,7 @@ export async function createAndReturnPreference(
       external_reference: order.id,
       notification_url:
         "https://backend-ecommerce-virid.vercel.app/api/ipn/mercadopago",
+      auto_return: "approved",
     });
 
     return preference;

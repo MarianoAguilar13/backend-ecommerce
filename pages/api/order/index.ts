@@ -51,7 +51,8 @@ async function postHandler(req: NextApiRequest, res: NextApiResponse, token) {
       );
 
       if (preference) {
-        res.send({ url: preference.sandbox_init_point });
+        //sandbox_init_point lo cambio por solo init_point
+        res.send({ url: preference.init_point });
       } else {
         res.send({ error: "Ocurrio un error en la creación de la preference" });
       }
