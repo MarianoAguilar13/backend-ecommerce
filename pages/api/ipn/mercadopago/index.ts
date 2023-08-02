@@ -15,9 +15,10 @@ async function mercadopago(req: NextApiRequest, res: NextApiResponse) {
     console.log(order);
 
     await verificarOrderStatus(order);
+    res.send("ok");
+  } else {
+    res.send("ok");
   }
-
-  res.send("ok");
 }
 
 const corsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
