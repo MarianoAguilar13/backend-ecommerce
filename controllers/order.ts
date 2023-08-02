@@ -48,7 +48,9 @@ export async function verificarOrderStatus(order) {
 }
   */
 
-  if (order.order_status == "paid") {
+  if (order.order_status === "paid") {
+    console.log("se realizo el pago");
+
     const orderId = order.external_reference;
     const myOrder = new Order(orderId);
     await myOrder.pull();

@@ -12,7 +12,7 @@ async function mercadopago(req: NextApiRequest, res: NextApiResponse) {
   const { id, topic } = req.query;
   if (topic == "merchant_order") {
     const order = await getMerchantOrder(id);
-    console.log(order);
+    console.log("esta es la order:", order);
 
     await verificarOrderStatus(order);
     res.send("ok");
