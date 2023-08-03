@@ -22,7 +22,7 @@ async function mercadopago(req: NextApiRequest, res: NextApiResponse) {
       try {
         const data = await getPayment(payment["data.id"]);
 
-        console.log("esta es la data del pago:  ", data);
+        console.log("esta es la data del pago:  ", data.response);
 
         await verificarPago(data);
       } catch (error) {
