@@ -1,5 +1,6 @@
 import { Order } from "models/orders";
 import { firestore } from "../lib/firestore";
+import { getMerchantOrder } from "lib/mercadopago";
 
 const collection = firestore.collection("orders");
 
@@ -52,6 +53,21 @@ export async function verificarOrderStatus(order) {
     console.log("se realizo el pago");
 
     const orderId = order.external_reference;
+    const myOrder = new Order(orderId);
+    await myOrder.pull();
+    myOrder.data.status = "closed";
+    await myOrder.push();
+    //enviar el email que el pago fue realizado
+  }
+}
+
+export async function verificarPago(pago) {
+  if (pago.status === "approved") {
+    console.log("se realizo el pago");
+
+    const merchantOrder = await getMerchantOrder(pago.order.id);
+
+    const orderId = merchantOrder.external_reference;
     const myOrder = new Order(orderId);
     await myOrder.pull();
     myOrder.data.status = "closed";

@@ -18,6 +18,12 @@ export async function createPreference(data = {}) {
   return res.body;
 }
 
+export async function getPayment(id) {
+  const res = await mercadopago.payment.findById(id);
+
+  return res;
+}
+
 export async function createAndReturnPreference(
   product,
   aditionalInfo,
