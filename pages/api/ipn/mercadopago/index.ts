@@ -20,7 +20,7 @@ async function mercadopago(req: NextApiRequest, res: NextApiResponse) {
   } else {
     if (payment.type == "payment") {
       try {
-        const data = getPayment(payment["data.id"]);
+        const data = await getPayment(payment["data.id"]);
 
         console.log("esta es la data del pago:  ", data);
 
