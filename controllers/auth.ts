@@ -59,7 +59,7 @@ export async function enviarMail(mailUser: string, texto: string) {
     const msg = {
       to: mailUser, // A quien va dirigido el correo
       from: "marianokuro@gmail.com", // Quien envia el correo (tiene que ser un sender verificado dentro de mi Sendgrid)
-      subject: "Mascotas perdidas",
+      subject: "E-commerce",
       text: "hola",
       html: "<strong>" + texto + "</strong>",
     };

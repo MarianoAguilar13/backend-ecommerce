@@ -3,6 +3,7 @@ import { decodeJwt } from "lib/jwt";
 import parseToken from "parse-bearer-token";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as yup from "yup";
+import { sgMail } from "lib/sendGrid";
 
 let bodySchemaOnePatch = yup
   .object()
@@ -131,5 +132,22 @@ export async function OnePatchHandler(
       message: "El query y/o body, le faltan o tienen datos de más",
       error,
     });
+  }
+}
+
+export async function enviarMailDeAviso(mailUser: string, texto: string) {
+  try {
+    const msg = {
+      to: mailUser, // A quien va dirigido el correo
+      from: "marianokuro@gmail.com", // Quien envia el correo (tiene que ser un sender verificado dentro de mi Sendgrid)
+      subject: "E-commerce",
+      text: "Hola",
+      html: "<strong>" + texto + "</strong>",
+    };
+    const mensaje = await sgMail.send(msg);
+
+    return { mensaje, message: "Mensaje enviado" };
+  } catch (error) {
+    return { error: error.message };
   }
 }

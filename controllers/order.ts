@@ -1,6 +1,8 @@
 import { Order } from "models/orders";
 import { firestore } from "../lib/firestore";
 import { getMerchantOrder } from "lib/mercadopago";
+import { enviarMailDeAviso } from "controllers/user";
+import { User } from "models/users";
 
 const collection = firestore.collection("orders");
 
@@ -71,6 +73,12 @@ export async function verificarPago(pago) {
     myOrder.data.status = "closed";
     await myOrder.push();
     //enviar el email que el pago fue realizado
+
+    const user = new User(pago.metadata.user_id);
+    await user.pull();
+
+    const text = `El producto que compro (${pago.description}) llegará en los próximos días.`;
+    await enviarMailDeAviso(user.data.email, text);
   }
 }
 
