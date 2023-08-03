@@ -62,12 +62,10 @@ export async function verificarOrderStatus(order) {
 }
 
 export async function verificarPago(pago) {
-  if (pago.status === "approved") {
+  if (pago.status == "approved") {
     console.log("se realizo el pago");
 
-    const merchantOrder = await getMerchantOrder(pago.order.id);
-
-    const orderId = merchantOrder.external_reference;
+    const orderId = pago.external_reference;
     const myOrder = new Order(orderId);
     await myOrder.pull();
     myOrder.data.status = "closed";
