@@ -45,8 +45,8 @@ export async function createAndReturnPreference(
       ],
       //la url donde va a volver el usuario
       back_urls: {
-        success: "http://localhost:3000/",
-        pending: "",
+        success: "http://localhost:3000/thanks",
+        failure: "http://localhost:3000/error-compra",
       },
       metadata: { userId },
       external_reference: order.id,

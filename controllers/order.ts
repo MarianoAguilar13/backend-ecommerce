@@ -77,7 +77,7 @@ export async function verificarPago(pago) {
     const user = new User(pago.metadata.user_id);
     await user.pull();
 
-    const text = `El producto que compro (${pago.description}) llegará en los próximos días.`;
+    const text = `El producto que compro (${pago.description}) llegará en los próximos días. Muchas gracias por su compra, que tenga un buen día.`;
     await enviarMailDeAviso(user.data.email, text);
   }
 }
