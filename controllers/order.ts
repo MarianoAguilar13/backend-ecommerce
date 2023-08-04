@@ -12,7 +12,7 @@ export async function createAndReturnOrder(aditionalInfo, productId, userId) {
     productId,
     userId,
     status: "pending",
-    crateDate: new Date(),
+    createDate: new Date(),
   });
 
   return order;
