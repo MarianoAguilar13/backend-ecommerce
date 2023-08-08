@@ -45,8 +45,8 @@ export async function createAndReturnPreference(
       ],
       //la url donde va a volver el usuario
       back_urls: {
-        success: "http://localhost:3000/thanks",
-        failure: "http://localhost:3000/error-compra",
+        success: "https://ecommerce-one-fawn.vercel.app/thanks",
+        failure: "https://ecommerce-one-fawn.vercel.app/error-compra",
       },
       metadata: { userId },
       external_reference: order.id,
